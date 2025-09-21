@@ -3,8 +3,8 @@ from datetime import datetime, timedelta
 import time
 
 
-account_sid = 'ACc84b6c99fae2287e02cc322cb32a67dc'
-auth_token = 'ad5aa186ea51ddc942e2438c52f45545'
+account_sid = '**account-id'
+auth_token = '**token-id'
 
 
 client = Client(account_sid, auth_token)
@@ -13,7 +13,7 @@ client = Client(account_sid, auth_token)
 def send_message(recipent_number, message_body):
     try:
         message = Client.messages.create(
-            from_= 'whatsapp:+14155238886',
+            from_= 'whatsapp: **your-Number',
             body = message_body,
             to = f'whatsapp:{recipent_number}'
         )
@@ -43,4 +43,5 @@ if delay_seconds <= 0:
 else:
     print(f"Message scheduled to be sent at {scheduled_datetime}. Waiting...")
     time.sleep(delay_seconds)
+
     send_message(recipent_number, message_body)
